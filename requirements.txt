@@ -1,0 +1,15 @@
+numpy
+pandas
+matplotlib
+seaborn
+tensorflow
+keras
+scikit-learn
+folium
+geopy
+tk
+rasterio
+branca
+jinja2
+requests
+datetime
