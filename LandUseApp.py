@@ -16,9 +16,7 @@ class LandUseApp:
     def __init__(self, root):
         self.root = root
         self.root.title("Enhanced Land Use Classification App")
-        #self.root.state('zoomed')
-        
-        # Initialize variables
+
         self.filtered_places = []
         self.user_lat = None
         self.user_lng = None
@@ -32,16 +30,14 @@ class LandUseApp:
         self.label_encoder = None
         self.X_test = None
         self.y_test = None
-        
-        # Create output folders
+
         for folder in [self.maps_folder, self.analysis_folder]:
             os.makedirs(folder, exist_ok=True)
         
         self.setup_gui()
         self.load_data()
         self.dem_file = "SLMerge.tif"
-        
-        # Add elevation colors for visualization
+
         self.elevation_colors = {
             'Very Low <50': '#d73027',   # red
             'Low 50-100': '#fc8d59',        # orange
@@ -164,10 +160,8 @@ class LandUseApp:
         return on_search_table(self, *args)
     
     def setup_gui(self):
-        # Create main container with tabs
         self.tab_control = ttk.Notebook(self.root)
-        
-        # Create and add tabs
+
         self.tab_main = ttk.Frame(self.tab_control)
         self.tab_analysis = ttk.Frame(self.tab_control)
         self.tab_visualization = ttk.Frame(self.tab_control)
@@ -179,8 +173,7 @@ class LandUseApp:
         self.tab_control.add(self.tab_export, text='Export')
         
         self.tab_control.pack(expand=1, fill="both")
-        
-        # Setup individual tabs
+
         self.setup_main_tab()
         self.setup_analysis_tab()
         self.setup_visualization_tab()
